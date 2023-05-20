@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+ }
+ body {
+     min-height: 100vh;
+     background: linear-gradient(#2b1055,#7597de,#2b1055);
+ }
+ header{
+     position: relative;
+     top: 0;
+     left: 0;
+     width: 100%;
+     padding: 30px 100px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ header .logo{
+     color: #fff;
+     font-weight: 700;
+     text-decoration: none;
+     font-size: 2em;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+ }
+ header ul{
+     display: flex;
+     justify-content: center;align-items: center;
+ }
+ header ul li {
+     list-style: none;
+     margin-left: 20px;
+ }
+ header ul li a{
+     text-decoration: none;
+     padding: 6px 15px;
+     color: #fff;
+     border-radius: 20px;
+ }
+ header ul li a:hover,
+ header ul li a.active{
+     background: #fff;
+     color: #2b1055;
+ }
+ section{
+     position: relative;
+     width: 100%;
+     height: 100vh;
+     overflow: hidden;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ 
+ }
+ section:before{
+     content: '';
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 100px;
+     background: linear-gradient(to top, #2b1055,transparent);
+     z-index: 100000;
+ }
+ section:after{
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 100000;
+     mix-blend-mode: color;
+ }
+ section img{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     pointer-events: none;
+ }
+ #text{
+     position: relative;
+     color: #fff;
+     font-size: 10em;
+     z-index: 1;
+ }
+ #road{
+     z-index: 2;
+ }
+ @media screen and (max-width: 768px) {
+     header {
+       padding: 30px 2%;
+     }
+   }
+   
+   @media screen and (max-width: 480px) {
+     header {
+       flex-direction: column;
+       text-align: center;
+     }
+   
+     header ul {
+       margin-top: 10px;
+     }
+   
+     header ul li {
+       margin: 10px 0;
+     }
+   }
+
+    footer ul li p:hover{
+        background: #d7d7d7;
+       
+    }
