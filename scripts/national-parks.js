@@ -16,11 +16,15 @@ const parkSelectionRow = document.getElementById("parkSelectionRow")
 window.onload = () => {
     stateSelect.onchange = onStateSelectChange;
     parkTypeSelect.onchange = onParkTypeSelectChange;
+    parkCheck.addEventListener("change", handleParkCheck);
+    stateCheck.addEventListener("change", handleStateCheck);
 
 
-    hideParkTypeSelect();
+    hideParkTypeSelectRow();
     hideParkDetail();
     hideStateSelectionRow();
+
+
 
 
     stateSelectList();
@@ -57,8 +61,23 @@ function parkTypeSelectList() {
     }
 
 }
+function handleParkCheck() {
+    if (parkCheck.checked) {
+        showParkTypeSelectRow();
+        hideStateSelectionRow();
+    } else {
+       hideParkTypeSelectRow();
+    }
+}
 
-
+function handleStateCheck() {
+    if (stateCheck.checked) {
+      showStateSelectionRow();
+      hideParkTypeSelectRow();
+    } else {
+        hideStateSelectionRow();
+    }
+}
 
 
 function onStateSelectChange() {
@@ -69,13 +88,7 @@ function onStateSelectChange() {
     
     
     console.log(parkFilter)
-    if (stateSelected = "") {
-        hideParkTypeSelect();
-    }
-    else {
-        showParkTypeSelect()
-      
-    }
+  
 }
 function onParkTypeSelectChange() {
     let currentParkType = parkTypeSelect.value;
@@ -103,11 +116,20 @@ function onParkTypeSelectChange() {
 
 
 
-function hideParkTypeSelect() {
+function hideParkTypeSelectRow() {
     parkTypeSelectionRow.style.display = "none";
 }
-function showParkTypeSelect() {
+function showParkTypeSelectRow() {
     parkTypeSelectionRow.style.display = "block";
+}
+
+
+
+function hideStateSelectionRow(){
+    stateSelectionRow.style.display = "none";
+}
+function showStateSelectionRow(){
+    stateSelectionRow.style.display = "block";
 }
 
 
@@ -117,11 +139,4 @@ function hideParkDetail() {
 
 function showParkDetail() {
     parkDetailRow.style.display = "block";
-}
-
-function hideStateSelectionRow(){
-    stateSelectionRow.style.display = "none";
-}
-function showStateSelectionRow(){
-    stateSelectionRow.style.display = "block";
 }
