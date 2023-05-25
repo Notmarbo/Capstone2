@@ -49,7 +49,7 @@ function stateSelectList() {
 function parkTypeSelectList() {
     parkTypeSelect.innerHTML = "";
 
-    let initialOption2 = new Option("Please select a park type!");
+    let initialOption2 = new Option("Please select a park type!","");
 
     parkTypeSelect.appendChild(initialOption2);
 
@@ -64,6 +64,8 @@ function parkTypeSelectList() {
 }
 function handleParkCheck() {
     if (parkCheck.checked) {
+        parkDetailRow.innerHTML = "";
+        parkTypeSelect.value = "";
         showParkTypeSelectRow();
         hideStateSelectionRow();
     } else {
@@ -73,6 +75,8 @@ function handleParkCheck() {
 
 function handleStateCheck() {
     if (stateCheck.checked) {
+        parkDetailRow.innerHTML ="";
+        stateSelect.value = "";
         showStateSelectionRow();
         hideParkTypeSelectRow();
     } else {
@@ -177,15 +181,6 @@ function makeParkCard(park) {
     listZipCode.innerHTML = "Zip Code: " + park.ZipCode;
     ulList.appendChild(listZipCode);
 }
-
-
-
-
-
-
-
-
-
 
 function hideParkTypeSelectRow() {
     parkTypeSelectionRow.style.display = "none";
