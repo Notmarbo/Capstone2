@@ -43,6 +43,7 @@ function stateSelectList() {
 
 
     }
+
 }
 
 function parkTypeSelectList() {
@@ -66,14 +67,14 @@ function handleParkCheck() {
         showParkTypeSelectRow();
         hideStateSelectionRow();
     } else {
-       hideParkTypeSelectRow();
+        hideParkTypeSelectRow();
     }
 }
 
 function handleStateCheck() {
     if (stateCheck.checked) {
-      showStateSelectionRow();
-      hideParkTypeSelectRow();
+        showStateSelectionRow();
+        hideParkTypeSelectRow();
     } else {
         hideStateSelectionRow();
     }
@@ -81,19 +82,35 @@ function handleStateCheck() {
 
 
 function onStateSelectChange() {
+    parkDetailRow.innerHTML ="";
     let stateSelected = stateSelect.value;
-    
-     const parkFilter = nationalParksArray.filter(p => p.State == stateSelected);
-    
-    
-    
+
+    const parkFilter = nationalParksArray.filter(p => p.State == stateSelected);
+
+
+
     console.log(parkFilter)
-  
+    if (stateSelected = "") {
+        hideParkDetail();
+    }
+    else {
+        showParkDetail();
+    }
+
+    
+    if(parkFilter.length > 0) {
+        for (let park of parkFilter) {
+            makeParkCard(park);
+        }
+    }
+
+
 }
 function onParkTypeSelectChange() {
+    parkDetailRow.innerHTML ="";
     let currentParkType = parkTypeSelect.value;
- 
-    const parkTypeFilter = parkFilter.filter(p => p.LocationName.includes(currentParkType));
+
+    const parkTypeFilter = nationalParksArray.filter(p => p.LocationName.includes(currentParkType));
     console.log(parkTypeFilter)
 
 
@@ -103,9 +120,63 @@ function onParkTypeSelectChange() {
     else {
         showParkDetail();
     }
+
+    
+    if(parkTypeFilter.length > 0) {
+        for (let park of parkTypeFilter) {
+            makeParkCard(park);
+        }
+        
+    }
+
 }
 
+function makeParkCard(park) {
+    let col = document.createElement("div");
+    col.className = "container col my-2";
+    parkDetailRow.appendChild(col);
 
+    let card = document.createElement("div");
+    card.className = "card";
+    col.appendChild(card);
+
+    let cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+    card.appendChild(cardBody);
+
+    let h4parkName = document.createElement("h4");
+    h4parkName.className = "card-title";
+    h4parkName.innerHTML = park.LocationName;
+    cardBody.appendChild(h4parkName);
+
+    let ulList = document.createElement("ul");
+    ulList.className = "ul";
+    h4parkName.appendChild(ulList);
+
+    let listId = document.createElement("li");
+    listId.className = "parkId";
+    listId.innerHTML = "Id: " + park.LocationID;
+    ulList.appendChild(listId);
+
+    let listAddress = document.createElement("li");
+    listAddress.className = "parkId";
+    listAddress.innerHTML = "Address: " + park.Address;
+    listId.appendChild(listAddress);
+
+    let listCity = document.createElement("li");
+    listCity.className = "parkCity";
+    listCity.innerHTML = "City: " + park.City;
+    listAddress.appendChild(listCity);
+
+    let listState = document.createElement("li");
+    listState.className = "parkState";
+    listState.innerHTML = "State: " + park.State;
+
+    let listZipCode = document.createElement("li");
+    listZipCode.className = "parkId";
+    listZipCode.innerHTML = "Zip Code: " + park.ZipCode;
+    ulList.appendChild(listZipCode);
+}
 
 
 
@@ -125,10 +196,10 @@ function showParkTypeSelectRow() {
 
 
 
-function hideStateSelectionRow(){
+function hideStateSelectionRow() {
     stateSelectionRow.style.display = "none";
 }
-function showStateSelectionRow(){
+function showStateSelectionRow() {
     stateSelectionRow.style.display = "block";
 }
 
