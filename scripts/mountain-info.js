@@ -10,12 +10,12 @@ const pictureBox = document.getElementById("pictureBox")
 
 
 
-window.onload = () =>{
+window.onload = () => {
     mountainSelectList();
     mountainSelect.onchange = onMountainChange;
 
     hideContentBox();
-  
+
 
 
 }
@@ -29,7 +29,7 @@ function mountainSelectList() {
         let newOption = new Option(listOfMountains.name);
         mountainSelect.appendChild(newOption);
 
-        
+
     }
 }
 
@@ -49,25 +49,25 @@ function onMountainChange() {
         showContentBox();
     }
 
-    
-    if(mountainFilter.length > 0) {
+
+    if (mountainFilter.length > 0) {
         for (let MT of mountainFilter) {
             makeInfoCard(MT);
         }
     }
 }
 
-function makeInfoCard(MT){
+function makeInfoCard(MT) {
     let col = document.createElement("div");
-    col.className ="container col my-2";
+    col.className = "container col my-2";
     infoBox.appendChild(col);
 
     let card = document.createElement("div");
-    card.className ="card";
+    card.className = "card";
     col.appendChild(card);
 
     let cardBody = document.createElement("div");
-    cardBody.className ="card-body";
+    cardBody.className = "card-body";
     card.appendChild(cardBody);
 
     let h4MountainName = document.createElement("h4");
@@ -78,18 +78,18 @@ function makeInfoCard(MT){
     let ulList = document.createElement("ul");
     ulList.className = "ul";
     h4MountainName.appendChild(ulList);
-    
+
     let mountainImage = document.createElement("img");
     mountainImage.className = "mountainImage";
-    mountainImage.src ="images/" + MT.img;
+    mountainImage.src = "images/" + MT.img;
     mountainImage.alt = "mountain image";
-   ulList.appendChild(mountainImage);
-   
+    ulList.appendChild(mountainImage);
+
     let listElevation = document.createElement("li");
     listElevation.className = "mountainElevation";
     listElevation.innerHTML = "Elevation:" + MT.elevation;
     ulList.appendChild(listElevation);
-        
+
 
     let listeffort = document.createElement("li");
     listeffort.className = "mountainEffort";
@@ -114,10 +114,10 @@ function makeInfoCard(MT){
 
 
 
-function showContentBox(){
+function showContentBox() {
     contentBox.style.display = "block"
 }
-function hideContentBox(){
+function hideContentBox() {
     contentBox.style.display = "none"
 }
 

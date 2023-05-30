@@ -1,14 +1,14 @@
 "use strict";
 
 
-let bg =document.getElementById("bg");
-let moon =document.getElementById("moon");
-let mountain =document.getElementById("mountain");
-let road =document.getElementById("road");
-let text =document.getElementById("text");
+let bg = document.getElementById("bg");
+let moon = document.getElementById("moon");
+let mountain = document.getElementById("mountain");
+let road = document.getElementById("road");
+let text = document.getElementById("text");
 
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function () {
     const value = this.window.scrollY;
 
     bg.style.top = value * 0.5 + "px";

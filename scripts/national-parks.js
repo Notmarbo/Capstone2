@@ -16,6 +16,7 @@ const parkSelectionRow = document.getElementById("parkSelectionRow")
 window.onload = () => {
     stateSelect.onchange = onStateSelectChange;
     parkTypeSelect.onchange = onParkTypeSelectChange;
+    
     parkCheck.addEventListener("change", handleParkCheck);
     stateCheck.addEventListener("change", handleStateCheck);
 
@@ -49,7 +50,7 @@ function stateSelectList() {
 function parkTypeSelectList() {
     parkTypeSelect.innerHTML = "";
 
-    let initialOption2 = new Option("Please select a park type!","");
+    let initialOption2 = new Option("Please select a park type!", "");
 
     parkTypeSelect.appendChild(initialOption2);
 
@@ -75,7 +76,7 @@ function handleParkCheck() {
 
 function handleStateCheck() {
     if (stateCheck.checked) {
-        parkDetailRow.innerHTML ="";
+        parkDetailRow.innerHTML = "";
         stateSelect.value = "";
         showStateSelectionRow();
         hideParkTypeSelectRow();
@@ -86,7 +87,7 @@ function handleStateCheck() {
 
 
 function onStateSelectChange() {
-    parkDetailRow.innerHTML ="";
+    parkDetailRow.innerHTML = "";
     let stateSelected = stateSelect.value;
 
     const parkFilter = nationalParksArray.filter(p => p.State == stateSelected);
@@ -101,8 +102,8 @@ function onStateSelectChange() {
         showParkDetail();
     }
 
-    
-    if(parkFilter.length > 0) {
+
+    if (parkFilter.length > 0) {
         for (let park of parkFilter) {
             makeParkCard(park);
         }
@@ -111,7 +112,7 @@ function onStateSelectChange() {
 
 }
 function onParkTypeSelectChange() {
-    parkDetailRow.innerHTML ="";
+    parkDetailRow.innerHTML = "";
     let currentParkType = parkTypeSelect.value;
 
     const parkTypeFilter = nationalParksArray.filter(p => p.LocationName.includes(currentParkType));
@@ -125,12 +126,12 @@ function onParkTypeSelectChange() {
         showParkDetail();
     }
 
-    
-    if(parkTypeFilter.length > 0) {
+
+    if (parkTypeFilter.length > 0) {
         for (let park of parkTypeFilter) {
             makeParkCard(park);
         }
-        
+
     }
 
 }
