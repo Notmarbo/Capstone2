@@ -10,7 +10,7 @@
 ###
 ![This is the home page!](./images/readMeImages/HomePage.png)
 ![This is the national park page!](./images/readMeImages/nationalPage.png)
-![This is the home page!](./images/readMeImages/nationalDropped.png)
-![This is the home page!](./images/readMeImages/nationalParkDropped.png)
-![This is the home page!](./images/readMeImages/MtPage.png)
-![This is the home page!](./images/readMeImages/MtDropped.png)
+![This is the national park page!](./images/readMeImages/nationalDropped.png)
+![This is the National park page!](./images/readMeImages/nationalParkDropped.png)
+![This is the Mountain page!](./images/readMeImages/MtPage.png)
+![This is the Mountain page!](./images/readMeImages/MtDropped.png)
